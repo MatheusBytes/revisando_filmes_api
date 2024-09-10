@@ -4,6 +4,7 @@ import Pagina from "@/app/components/Pagina";
 import { useEffect, useState } from "react";
 import apiMovie from "@/app/services/apiMovies";
 import { Col, Row } from "react-bootstrap";
+import Link from "next/link";
 
 export default function Page({ params }) {
 
@@ -44,8 +45,11 @@ export default function Page({ params }) {
 
                         <Row>
                             {atores.map(item => (
-                                <Col className="mb-3" sm={2}>
+                                <Col key={item.id} title={item.name} className="mb-3" sm={2}>
+                                    <Link href={`/atores/${item.id}`}>
                                     <img className="img-fluid" src={'https://image.tmdb.org/t/p/w500/' + item.profile_path} />
+                                    
+                                    </Link>
                                 </Col>
                             ))}
                         </Row>
