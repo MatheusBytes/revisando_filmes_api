@@ -12,7 +12,7 @@ export default function Page() {
     const [series, setSeries] = useState([])
 
     useEffect(() => {
-        apiMovie.get('tv/popular').then(resultado => {
+        apiMovie.get('tv/top_rated').then(resultado => {
             setSeries(resultado.data.results)
         })
     }, [])
